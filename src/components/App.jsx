@@ -24,7 +24,7 @@ state = {
 
 onAddContact = ({ name, number }) => {
     const normalizedName = name.toLowerCase();
-
+    //метод some() позволяет проверить соответствует ли по крайней мере один элемент в массиве условию, заданному в передаваемой функции
     if (
     this.state.contacts.some(
         contact => contact.name.toLowerCase() === normalizedName
@@ -45,6 +45,7 @@ onAddContact = ({ name, number }) => {
     ],
     }));
 };
+    
 
 handleDelete = id => {
     this.setState(prevState => ({
