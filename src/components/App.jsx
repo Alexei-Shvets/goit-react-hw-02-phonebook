@@ -57,10 +57,9 @@ handleFilter = e => {
 };
 
 render() {
-    const { contacts, filter } = this.state;
-    let renderContacts = contacts;
+    const { contacts, filter } = this.state;    
 
-    renderContacts = contacts.filter(({ name }) =>
+    let renderContacts = contacts.filter(({ name }) =>
     name.toLowerCase().includes(filter.trim())
     );
 
