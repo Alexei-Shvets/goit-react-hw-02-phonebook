@@ -21,10 +21,11 @@ state = {
     ],
     filter: '',
 };
-
+//эта функция предотвращает запись в список одинаковых имен контактов
 onAddContact = ({ name, number }) => {
     const normalizedName = name.toLowerCase();
-    //метод some() позволяет проверить соответствует ли по крайней мере один элемент в массиве условию, заданному в передаваемой функции
+    //метод some() позволяет проверить соответствует ли по крайней мере 
+    //один элемент в массиве условию, заданному в передаваемой функции
     if (
     this.state.contacts.some(
         contact => contact.name.toLowerCase() === normalizedName
@@ -33,7 +34,8 @@ onAddContact = ({ name, number }) => {
     Notify.failure(`${name} is already in contacts`);
     return;
     }
-
+    //привстейт - это результат передачи с 31 строки на 25 в параметр нейм
+    //формируем новый стейт с данными, которые пришли со стейта модального окна
     this.setState(prevState => ({
     contacts: [
         ...prevState.contacts,
@@ -46,13 +48,13 @@ onAddContact = ({ name, number }) => {
     }));
 };
     
-
+//функция ручного удаления айтема(контакт)
 handleDelete = id => {
     this.setState(prevState => ({
     contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
 };
-
+//функция сохраняет в стейт.фильтр вносит значение, вводимое в поле поиска
 handleFilter = e => {
     this.setState({ filter: e.target.value });
 };
@@ -63,7 +65,7 @@ render() {
     let renderContacts = contacts.filter(({ name }) =>
     name.toLowerCase().includes(filter.trim())
     );
-
+    
     return (
         <Fragment>
             <Container>

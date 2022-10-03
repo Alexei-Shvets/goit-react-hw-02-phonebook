@@ -18,7 +18,7 @@ state = {
 //привент дефолт внутри для предотвращения перезагрузки страницы, после чего вызов ресетФорм очищает поля инпутов.
 handleSubmit = e => {
     e.preventDefault();
-
+    
     const { onSubmit } = this.props;
     onSubmit(this.state);
     this.resetForm();
